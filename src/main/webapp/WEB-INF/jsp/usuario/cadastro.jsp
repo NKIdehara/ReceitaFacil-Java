@@ -12,28 +12,26 @@
 <body>
     <h1>Receita Fácil</h1>
     <div class="container">
-            <form action="/usuario/incluir" method="post">
-                <h3>Cadastro de Usuários</h3>
+        <form action="/usuario/incluir" method="post">
+            <h3>Cadastro de Usuários</h3>
 
-                <div class="mb-3 mt-3">
-                    <label class="form-label">Nome:</label>
-                    <input type="text" class="form-control" name="nome" value="Admin">                
-                </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label">Nome:</label>
+                <input type="text" class="form-control" name="nome" value="Admin">                
+            </div>
 
-                <div class="mb-3 mt-3">
-                    <label class="form-label">Nome:</label>
-                    <input type="password" class="form-control" name="senha" value="123">                
-                </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label">Nome:</label>
+                <input type="password" class="form-control" name="senha" value="123">                
+            </div>
 
-                <div class="mb-3 mt-3">
-                    <label class="form-label">Nome:</label>
-                    <input type="email" class="form-control" name="email" value="email@email.com">                
-                </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label">Nome:</label>
+                <input type="email" class="form-control" name="email" value="email@email.com">                
+            </div>
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-
-            </form>
-
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
     </div>
 
 </body>

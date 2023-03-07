@@ -8,6 +8,7 @@ public class ReceitaFacilController {
 
     @GetMapping(value = "/")
     public String usuarioCadastro() {
-        return "index";
+        return "login";
     }
+
 }
