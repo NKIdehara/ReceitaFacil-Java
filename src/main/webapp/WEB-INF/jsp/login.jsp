@@ -14,8 +14,7 @@
 <body>
     <% String msg = (String)request.getAttribute("mensagem");%>
 
-    <img src="./../../resources/ic_cook.png" height="300">
-    <h1>Receita Fácil</h1>
+    <%@include file="/WEB-INF/jsp/menu.jsp" %>
 
     <div class="container">
         <form action="/login" method="post">

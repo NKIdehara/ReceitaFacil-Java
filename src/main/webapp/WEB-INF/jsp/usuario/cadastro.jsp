@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Receita Fácil</h1>
+    <%@include file="/WEB-INF/jsp/menu.jsp" %>
     <div class="container">
         <form action="/usuario/incluir" method="post">
             <h3>Cadastro de Usuários</h3>

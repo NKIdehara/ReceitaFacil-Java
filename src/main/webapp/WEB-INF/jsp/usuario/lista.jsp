@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import ="java.util.List"%>
-<%@ page import ="java.util.ArrayList"%>
+<%@ page import ="java.util.Collection"%>
+<%@ page import ="java.util.HashSet"%>
 <%@ page import ="br.edu.infnet.al.receitafacil.domain.Usuario"%>
 
 <!doctype html>
@@ -18,11 +18,10 @@
     <% String opc = (String)request.getAttribute("opcao");%>
     <% String msg = (String)request.getAttribute("mensagem");%>
 
-    <img src="./../../resources/ic_cook.png" height="300">
-    <h1>Receita Fácil</h1>
+    <%@include file="/WEB-INF/jsp/menu.jsp" %>
 
     <div class="container">
-        <form action="/usuario" method="get">
+        <form action="/usuario/cadastro" method="get">
             <h3>Usuários</h3>
             <button type="submit" class="btn btn-primary">Novo</button>
         </form>
@@ -49,12 +48,13 @@
         <%}%>
 
         <% 
-            List<Usuario> usuarios = new ArrayList<Usuario>();
-            usuarios = (List)request.getAttribute("usuarios");
+            Collection<Usuario> usuarios = new HashSet<Usuario>();
+            usuarios = (Collection)request.getAttribute("usuarios");
         %>
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>id</th>
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Senha</th>
@@ -64,9 +64,11 @@
             <tbody>
                 <%for(Usuario u : usuarios) {%>
                     <tr>
+                        <td><%=u.getId()%></td>
                         <td><%=u.getNome()%></td>
                         <td><%=u.getEmail()%></td>
                         <td><%=u.getSenha()%></td>
+                        <td><a href="/usuario/<%=u.getId()%>/excluir">excluir</a></td>
                     </tr>
                 <%}%>
             </tbody>

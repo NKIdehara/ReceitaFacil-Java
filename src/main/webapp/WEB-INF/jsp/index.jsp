@@ -16,11 +16,12 @@
 
     <%@include file="/WEB-INF/jsp/menu.jsp" %>
 
-    <div class="container">
-        <h1>Bem vindo!</h1>
-
-        <form action="/logout" method="get">
-            <button type="submit" class="btn btn-primary">❌ Logout</button>
+    <div class="d-grid gap-2 col-sm-2 mx-auto">
+        <form action="/usuario/cadastro" method="get">
+            <button class="btn btn-primary" type="submit">Primeiro acesso</button>
+        </form>
+        <form action="/login" method="get">
+            <button class="btn btn-primary" type="submit">Log in</button>
         </form>
     </div>
 </body>

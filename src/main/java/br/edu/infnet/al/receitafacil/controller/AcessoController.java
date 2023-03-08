@@ -14,22 +14,16 @@ public class AcessoController {
     public String telaLogin() {
         return "login";
     }
+    @GetMapping(value = "/logout")
+    public String telaLogout() {
+        UsuarioRepository.setLogin(false);
+        return "index";
+    }
 
     @PostMapping(value = "/login")
     public String login(Model model, Usuario userLogin) {
         if(userLogin.getEmail().equalsIgnoreCase(userLogin.getSenha())) {
-            // inclusão temporária para testes
-            if(UsuarioRepository.quantidade() == 0) {
-                Usuario user1 = new Usuario("João da Silva", "jsilva@email.com", "123456");
-                Usuario user2 = new Usuario("Maria Joaquina", "mjoaquina@email.com", "123456");
-                Usuario user3 = new Usuario("Pedro Pereira", "ppereira@email.com", "123456");
-                Usuario user4 = new Usuario("Sofia Oliveira", "soliveira@email.com", "123456");
-                UsuarioRepository.incluir(user1);
-                UsuarioRepository.incluir(user2);
-                UsuarioRepository.incluir(user3);
-                UsuarioRepository.incluir(user4);
-            }
-
+            UsuarioRepository.setLogin(true);
             return "home";
         }
         else {
