@@ -21,12 +21,12 @@
             </div>
 
             <div class="mb-3 mt-3">
-                <label class="form-label">Nome:</label>
+                <label class="form-label">Senha:</label>
                 <input type="password" class="form-control" name="senha" value="123">                
             </div>
 
             <div class="mb-3 mt-3">
-                <label class="form-label">Nome:</label>
+                <label class="form-label">e-mail:</label>
                 <input type="email" class="form-control" name="email" value="email@email.com">                
             </div>
 

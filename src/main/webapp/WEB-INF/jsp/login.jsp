@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="password" class="form-control" name="senha" value="email@email.com">
+                <input type="password" class="form-control" name="senha" value="123">
             </div>
 
             <button type="submit" class="btn btn-primary">Acessar</button>
@@ -36,7 +36,9 @@
                     <strong>Erro! </strong> <%=msg%>
                 </div>
             <%}%>
-
+        </form>
+        <form action="/" method="get">
+            <button type="submit" class="btn btn-primary">↩️ Retornar</button>
         </form>
     </div>
 </body>

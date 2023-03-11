@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    <% String msg = (String)request.getAttribute("mensagem");%>
-
     <%@include file="/WEB-INF/jsp/menu.jsp" %>
 
     <div class="container">

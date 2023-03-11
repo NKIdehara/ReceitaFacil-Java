@@ -8,16 +8,16 @@ import br.edu.infnet.al.receitafacil.domain.Usuario;
 
 public class UsuarioRepository {
 
-    private static boolean login = false;
+    private static int login = -1;
 
 	private static Integer id = 1;
 	
 	private static Map<Integer, Usuario> mapaUsuario = new HashMap<Integer, Usuario>();
 
-    public static boolean isLogin() {
+    public static int getLogin() {
         return login;
     }
-    public static void setLogin(boolean access) {
+    public static void setLogin(int access) {
         login = access;
     }
 
@@ -40,7 +40,20 @@ public class UsuarioRepository {
         return mapaUsuario.values();
     }
 
+    public static Usuario usuario(int id) {
+        return mapaUsuario.get(id);
+    }
     public static int quantidade() {
         return mapaUsuario.size();
+    }
+
+    // verifica email cadastrado e retorna senha
+    public static int cadastrado(String email, String senha) {
+        for(Map.Entry<Integer, Usuario> usuario : mapaUsuario.entrySet()) {
+            if(email.equalsIgnoreCase(usuario.getValue().getEmail()) && senha.equals(usuario.getValue().getSenha())) {
+                return usuario.getValue().getId(); //encontrou usuário cadastrado
+            }
+        }
+        return -1; //não encontrou usuário
     }
 }
