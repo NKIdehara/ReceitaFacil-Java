@@ -37,9 +37,6 @@
                 </div>
             <%}%>
         </form>
-        <form action="/" method="get">
-            <button type="submit" class="btn btn-primary">↩️ Retornar</button>
-        </form>
     </div>
 </body>
 

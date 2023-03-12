@@ -22,22 +22,24 @@
                         <a class="nav-link" href="/usuario/lista">Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Receitas</a>
+                        <a class="nav-link" href="/receita/lista">Receitas</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Ingredientes</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Granel</a></li>
-                            <li><a class="dropdown-item" href="#">Líquido</a></li>
-                            <li><a class="dropdown-item" href="#">Fresco</a></li>
+                            <li><a class="dropdown-item" href="/ingrediente/granel/lista">Granel</a></li>
+                            <li><a class="dropdown-item" href="/ingrediente/liquido/lista">Líquido</a></li>
+                            <li><a class="dropdown-item" href="/ingrediente/fresco/lista">Fresco</a></li>
                         </ul>
                     </li>
                 </ul>
             
-                <form class="d-flex" action="/logout" method="get">
+                <div class="mb-3 row">
                     <h5>Bem vindo <%=user.getNome()%></h5>
-                    <button type="submit" class="btn btn-outline-secondary">❌ Logout</button>
-                </form>
+                    <form class="d-flex" action="/logout" method="get">
+                        <button type="submit" class="btn btn-outline-secondary">❌ Logout</button>
+                    </form>
+                </div>
             <%}%>
 
         </div>
