@@ -1,5 +1,6 @@
 package br.edu.infnet.al.receitafacil.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +9,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import br.edu.infnet.al.receitafacil.domain.IngredienteLiquido;
-import br.edu.infnet.al.receitafacil.repository.IngredienteLiquidoRepository;
-import br.edu.infnet.al.receitafacil.repository.UsuarioRepository;
+import br.edu.infnet.al.receitafacil.model.domain.IngredienteLiquido;
+// import br.edu.infnet.al.receitafacil.model.repository.IngredienteLiquidoRepository;
+// import br.edu.infnet.al.receitafacil.model.repository.UsuarioRepository;
+import br.edu.infnet.al.receitafacil.model.service.IngredienteLiquidoService;
+import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
 @Controller
 @SessionAttributes("usuario")
 public class IngredienteLiquidoController {
+    @Autowired
+    private IngredienteLiquidoService ingredienteLiquidoService;
+
+    @Autowired
+    private UsuarioService usuarioService;
+
     @GetMapping(value = "/ingrediente/liquido/cadastro")
     public String ingredienteLiquidoCadastro() {
         return "ingrediente/liquido/cadastro";
@@ -22,7 +31,7 @@ public class IngredienteLiquidoController {
 
     @GetMapping(value = "/ingrediente/liquido/lista")
     public String ingredienteLiquidoLista(Model model) {
-        model.addAttribute("ingredientes", IngredienteLiquidoRepository.listar());
+        model.addAttribute("ingredientes", ingredienteLiquidoService.listar());
         return "ingrediente/liquido/lista";
     }
 
@@ -36,8 +45,8 @@ public class IngredienteLiquidoController {
         @RequestParam(required = false) boolean pacote,
         @RequestParam float densidade) {
 
-        IngredienteLiquido liquido = new IngredienteLiquido(nome, UsuarioRepository.getLogin(), preco, quantidade, unidade, quente, pacote, densidade);
-        IngredienteLiquidoRepository.incluir(liquido);
+        IngredienteLiquido liquido = new IngredienteLiquido(nome, usuarioService.getLogin(), preco, quantidade, unidade, quente, pacote, densidade);
+        ingredienteLiquidoService.incluir(liquido);
 
         model.addAttribute("opcao", "i");
         model.addAttribute("mensagem", liquido.getNome() + " foi incluído com sucesso.");
@@ -47,7 +56,7 @@ public class IngredienteLiquidoController {
 
 	@GetMapping(value = "/ingrediente/liquido/{id}/excluir")
 	public String ingredienteLiquidoExcluir(Model model, @PathVariable Integer id) {
-        IngredienteLiquido liquido = IngredienteLiquidoRepository.excluir(id);
+        IngredienteLiquido liquido = ingredienteLiquidoService.excluir(id);
 		
         model.addAttribute("opcao", "x");
         model.addAttribute("mensagem", liquido.getNome() + " foi excluído com sucesso.");

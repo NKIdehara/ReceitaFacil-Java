@@ -1,4 +1,4 @@
-package br.edu.infnet.al.receitafacil.domain;
+package br.edu.infnet.al.receitafacil.model.domain;
 
 public class Usuario {
     private Integer id;

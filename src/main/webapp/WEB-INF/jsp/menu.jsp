@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import ="br.edu.infnet.al.receitafacil.domain.Usuario"%>
+<%@ page import ="br.edu.infnet.al.receitafacil.model.domain.Usuario"%>
 <% Usuario user = (Usuario)request.getAttribute("usuario");%>
 
 <nav class="navbar navbar-expand-sm bg-light navbar-light">

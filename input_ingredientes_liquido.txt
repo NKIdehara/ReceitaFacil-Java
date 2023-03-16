@@ -1,0 +1,10 @@
+Leite;1;10.0;1.0;litros;N;S;1.1
+Molho de tomate;1;21.50;330;ml;N;S;1.5
+Azeite;1;33.7;100;ml;S;N;0.6
+Azeite;2;33.7;100;ml;S;N;0.6
+Leite;3;10.0;1.0;litros;N;S;1.1
+Molho de tomate;3;21.50;330;ml;N;S;1.5
+Molho de tomate;4;21.50;330;ml;N;S;1.5
+Azeite;4;33.7;100;ml;S;N;0.6
+Leite;5;10.0;1.0;litros;N;S;1.1
+Azeite;5;33.7;100;ml;S;N;0.6

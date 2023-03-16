@@ -1,0 +1,10 @@
+Alho;1;12.90;50;g;N;S;3
+Cebola;1;5.70;300;g;N;S;1
+Tomate;1;4.80;0.5;kg;S;S;1
+Cebola;2;5.70;300;g;N;S;1
+Tomate;2;4.80;0.5;kg;S;S;1
+Alho;3;12.90;50;g;N;S;3
+Alho;4;12.90;50;g;N;S;3
+Tomate;4;4.80;0.5;kg;S;S;1
+Alho;5;12.90;50;g;N;S;3
+Cebola;5;5.70;300;g;N;S;1

@@ -1,11 +1,14 @@
-package br.edu.infnet.al.receitafacil.repository;
+package br.edu.infnet.al.receitafacil.model.repository;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.edu.infnet.al.receitafacil.domain.Usuario;
+import org.springframework.stereotype.Repository;
 
+import br.edu.infnet.al.receitafacil.model.domain.Usuario;
+
+@Repository
 public class UsuarioRepository {
 
     private static int login = -1;
@@ -21,7 +24,7 @@ public class UsuarioRepository {
         login = access;
     }
 
-    public static boolean incluir(Usuario usuario) {
+    public boolean incluir(Usuario usuario) {
         usuario.setId(id++);
 
         try {
@@ -32,15 +35,15 @@ public class UsuarioRepository {
         }
     }
 
-	public static Usuario excluir(Integer key) {
+	public Usuario excluir(Integer key) {
 		return mapaUsuario.remove(key);
 	}
 
-    public static Collection<Usuario> listar() {
+    public Collection<Usuario> listar() {
         return mapaUsuario.values();
     }
 
-    public static Usuario usuario(int id) {
+    public Usuario usuario(int id) {
         return mapaUsuario.get(id);
     }
     public static int quantidade() {
@@ -48,7 +51,7 @@ public class UsuarioRepository {
     }
 
     // verifica email cadastrado e retorna senha
-    public static int cadastrado(String email, String senha) {
+    public int cadastrado(String email, String senha) {
         for(Map.Entry<Integer, Usuario> usuario : mapaUsuario.entrySet()) {
             if(email.equalsIgnoreCase(usuario.getValue().getEmail()) && senha.equals(usuario.getValue().getSenha())) {
                 return usuario.getValue().getId(); //encontrou usuário cadastrado

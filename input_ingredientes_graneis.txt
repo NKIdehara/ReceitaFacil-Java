@@ -1,0 +1,10 @@
+Farinha de trigo;1;5.40;300;g;S;N;0.8
+Arroz;1;10.20;0.5;kg;S;S;1.4
+Feijao;1;5.90;300;g;N;S;1.1
+Farinha de trigo;2;5.40;300;g;S;N;0.8
+Farinha de trigo;3;5.40;300;g;S;N;0.8
+Arroz;3;10.20;0.5;kg;S;S;1.4
+Arroz;4;10.20;0.5;kg;S;S;1.4
+Feijao;4;5.90;300;g;N;S;1.1
+Farinha de trigo;5;5.40;300;g;S;N;0.8
+Feijao;5;5.90;300;g;N;S;1.1

@@ -1,17 +1,20 @@
-package br.edu.infnet.al.receitafacil.repository;
+package br.edu.infnet.al.receitafacil.model.repository;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.edu.infnet.al.receitafacil.domain.IngredienteLiquido;
+import org.springframework.stereotype.Repository;
 
+import br.edu.infnet.al.receitafacil.model.domain.IngredienteLiquido;
+
+@Repository
 public class IngredienteLiquidoRepository {
 	private static Integer id = 1;
 	
 	private static Map<Integer, IngredienteLiquido> mapaIngredienteLiquido = new HashMap<Integer, IngredienteLiquido>();
 
-    public static boolean incluir(IngredienteLiquido liquido) {
+    public boolean incluir(IngredienteLiquido liquido) {
         liquido.setId(id++);
 
         try {
@@ -22,11 +25,11 @@ public class IngredienteLiquidoRepository {
         }
     }
 
-	public static IngredienteLiquido excluir(Integer key) {
+	public IngredienteLiquido excluir(Integer key) {
 		return mapaIngredienteLiquido.remove(key);
 	}
 
-    public static Collection<IngredienteLiquido> listar() {
+    public Collection<IngredienteLiquido> listar() {
         return mapaIngredienteLiquido.values();
     }
 

@@ -1,17 +1,20 @@
-package br.edu.infnet.al.receitafacil.repository;
+package br.edu.infnet.al.receitafacil.model.repository;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.edu.infnet.al.receitafacil.domain.IngredienteGranel;
+import org.springframework.stereotype.Repository;
 
+import br.edu.infnet.al.receitafacil.model.domain.IngredienteGranel;
+
+@Repository
 public class IngredienteGranelRepository {
 	private static Integer id = 1;
 	
 	private static Map<Integer, IngredienteGranel> mapaIngredienteGranel = new HashMap<Integer, IngredienteGranel>();
 
-    public static boolean incluir(IngredienteGranel granel) {
+    public boolean incluir(IngredienteGranel granel) {
         granel.setId(id++);
 
         try {
@@ -22,11 +25,11 @@ public class IngredienteGranelRepository {
         }
     }
 
-	public static IngredienteGranel excluir(Integer key) {
+	public IngredienteGranel excluir(Integer key) {
 		return mapaIngredienteGranel.remove(key);
 	}
 
-    public static Collection<IngredienteGranel> listar() {
+    public Collection<IngredienteGranel> listar() {
         return mapaIngredienteGranel.values();
     }
 

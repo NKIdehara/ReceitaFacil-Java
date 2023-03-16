@@ -21,11 +21,11 @@
             <h3>Login</h3>
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="email" class="form-control" name="email" value="email@email.com">
+                <input type="email" class="form-control" name="email" value="lsilva@email.com">
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="password" class="form-control" name="senha" value="123">
+                <input type="password" class="form-control" name="senha" value="123456">
             </div>
 
             <button type="submit" class="btn btn-primary">Acessar</button>

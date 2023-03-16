@@ -1,5 +1,6 @@
 package br.edu.infnet.al.receitafacil.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +9,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import br.edu.infnet.al.receitafacil.domain.IngredienteGranel;
-import br.edu.infnet.al.receitafacil.repository.IngredienteGranelRepository;
-import br.edu.infnet.al.receitafacil.repository.UsuarioRepository;
+import br.edu.infnet.al.receitafacil.model.domain.IngredienteGranel;
+// import br.edu.infnet.al.receitafacil.model.repository.IngredienteGranelRepository;
+// import br.edu.infnet.al.receitafacil.model.repository.UsuarioRepository;
+import br.edu.infnet.al.receitafacil.model.service.IngredienteGranelService;
+import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
 @Controller
 @SessionAttributes("usuario")
 public class IngredienteGranelController {
+    @Autowired
+    private IngredienteGranelService ingredienteGranelService;
+
+    @Autowired
+    private UsuarioService usuarioService;
+
     @GetMapping(value = "/ingrediente/granel/cadastro")
     public String ingredienteGranelCadastro() {
         return "ingrediente/granel/cadastro";
@@ -22,7 +31,7 @@ public class IngredienteGranelController {
 
     @GetMapping(value = "/ingrediente/granel/lista")
     public String ingredienteGranelLista(Model model) {
-        model.addAttribute("ingredientes", IngredienteGranelRepository.listar());
+        model.addAttribute("ingredientes", ingredienteGranelService.listar());
         return "ingrediente/granel/lista";
     }
 
@@ -36,8 +45,8 @@ public class IngredienteGranelController {
         @RequestParam(required = false) boolean fracionado, 
         @RequestParam float densidade) {
 
-        IngredienteGranel granel = new IngredienteGranel(nome, UsuarioRepository.getLogin(), preco, quantidade, unidade, perecivel, fracionado, densidade);
-        IngredienteGranelRepository.incluir(granel);
+        IngredienteGranel granel = new IngredienteGranel(nome, usuarioService.getLogin(), preco, quantidade, unidade, perecivel, fracionado, densidade);
+        ingredienteGranelService.incluir(granel);
 
         model.addAttribute("opcao", "i");
         model.addAttribute("mensagem", granel.getNome() + " foi incluído com sucesso.");
@@ -47,7 +56,7 @@ public class IngredienteGranelController {
 
 	@GetMapping(value = "/ingrediente/granel/{id}/excluir")
 	public String ingredienteGranelExcluir(Model model, @PathVariable Integer id) {
-        IngredienteGranel granel = IngredienteGranelRepository.excluir(id);
+        IngredienteGranel granel = ingredienteGranelService.excluir(id);
 		
         model.addAttribute("opcao", "x");
         model.addAttribute("mensagem", granel.getNome() + " foi excluído com sucesso.");
