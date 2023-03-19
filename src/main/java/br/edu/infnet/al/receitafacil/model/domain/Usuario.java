@@ -19,9 +19,12 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private long telefone;
+    private int cep;
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Cozinheiro> cozinheiros;
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -50,6 +53,20 @@ public class Usuario {
         return senha;
     }
 
+    public long getTelefone() {
+        return this.telefone;
+    }
+    public void setTelefone(long telefone) {
+        this.telefone = telefone;
+    }
+
+    public int getCep() {
+        return this.cep;
+    }
+    public void setCep(int cep) {
+        this.cep = cep;
+    }
+
     public List<Cozinheiro> getCozinheiros() {
         return this.cozinheiros;
     }
@@ -60,22 +77,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String email, String senha, long telefone, int cep) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-    }
-    
-    @Override
-    public String toString() {
-        StringBuilder usuario = new StringBuilder();
-        usuario
-            .append(nome)
-            .append(";")
-            .append(email)
-            .append(";")
-            .append(senha);
-        
-        return usuario.toString();
+        this.telefone = telefone;
+        this.cep = cep;
     }
 }

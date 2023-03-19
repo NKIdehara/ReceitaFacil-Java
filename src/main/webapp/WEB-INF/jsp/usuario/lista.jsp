@@ -58,6 +58,8 @@
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th>Senha</th>
+                    <th>Telefone</th>
+                    <th>CEP</th>
                     <th>Quantidade de<br>Cozinheiros</th>
                     <th></th>
                 </tr>
@@ -66,9 +68,11 @@
                 <%for(Usuario u : usuarios) {%>
                     <tr>
                         <td><%=u.getId()%></td>
-                        <td><%=u.getNome()%></td>
+                        <td><a href="/usuario/<%=u.getId()%>/verificar"><%=u.getNome()%></a></td>
                         <td><%=u.getEmail()%></td>
                         <td><%=u.getSenha()%></td>
+                        <td><%=u.getTelefone()%></td>
+                        <td><%=u.getCep()%></td>
                         <td><%=u.getCozinheiros().size()%></td>
                         <td><a href="/usuario/<%=u.getId()%>/excluir">excluir</a></td>
                     </tr>

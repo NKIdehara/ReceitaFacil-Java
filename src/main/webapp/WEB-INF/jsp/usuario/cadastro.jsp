@@ -17,17 +17,27 @@
 
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="text" class="form-control" name="nome" value="Admin">                
+                <input type="text" class="form-control" name="nome" value="Admin">
             </div>
 
             <div class="mb-3 mt-3">
                 <label class="form-label">Senha:</label>
-                <input type="password" class="form-control" name="senha" value="123">                
+                <input type="password" class="form-control" name="senha" value="123">
             </div>
 
             <div class="mb-3 mt-3">
                 <label class="form-label">e-mail:</label>
-                <input type="email" class="form-control" name="email" value="email@email.com">                
+                <input type="email" class="form-control" name="email" value="email@email.com">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label">Telefone:</label>
+                <input type="number" class="form-control" name="telefone" value="012934567899">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label">CEP:</label>
+                <input type="number" class="form-control" name="cep" value="12345678">
             </div>
 
             <button type="submit" class="btn btn-primary">Cadastrar</button>

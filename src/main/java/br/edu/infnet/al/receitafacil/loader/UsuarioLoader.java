@@ -33,7 +33,7 @@ public class UsuarioLoader implements ApplicationRunner {
                 while(linha != null) {
                     campo = linha.split(";");
 
-                    Usuario usuario = new Usuario(campo[0], campo[1], campo[2]);
+                    Usuario usuario = new Usuario(campo[0], campo[1], campo[2], Long.parseLong(campo[3]), Integer.parseInt(campo[4]));
                     usuarioService.incluir(usuario);
                     
                     linha = registro.readLine();
