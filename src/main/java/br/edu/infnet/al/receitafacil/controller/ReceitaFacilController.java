@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-// import br.edu.infnet.al.receitafacil.model.domain.Usuario;
-// import br.edu.infnet.al.receitafacil.model.repository.UsuarioRepository;
 import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
 @Controller

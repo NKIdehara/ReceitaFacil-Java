@@ -21,7 +21,7 @@
             <h3>Login</h3>
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="email" class="form-control" name="email" value="lsilva@email.com">
+                <input type="email" class="form-control" name="email" value="admin@email.com">
             </div>
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>

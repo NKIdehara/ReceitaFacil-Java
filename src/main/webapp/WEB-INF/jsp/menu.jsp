@@ -22,6 +22,9 @@
                         <a class="nav-link" href="/usuario/lista">Usuários</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/cozinheiro/lista">Cozinheiros</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/receita/lista">Receitas</a>
                     </li>
                     <li class="nav-item dropdown">

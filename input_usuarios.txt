@@ -1,3 +1,4 @@
+Administrador;admin@email.com;123456
 Luiz da Silva;lsilva@email.com;123456
 Maria Joaquina;mjoaquina@email.com;123456
 Pedro Pereira;ppereira@email.com;123456

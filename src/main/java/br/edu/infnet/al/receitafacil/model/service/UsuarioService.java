@@ -23,23 +23,30 @@ public class UsuarioService {
     }
 
     public boolean incluir(Usuario usuario) {
-        return usuarioRepository.incluir(usuario);
+        Usuario user = usuarioRepository.save(usuario);
+        return (user != null) ? true : false;
     }
 
     public Usuario excluir(Integer key) {
-        return usuarioRepository.excluir(key);
+        Usuario user = usuarioRepository.findById(key).get();
+        usuarioRepository.deleteById(key);
+        return user;
     }
 
     public Collection<Usuario> listar() {
-        return usuarioRepository.listar();
+        return (Collection<Usuario>) usuarioRepository.findAll();
     }
 
     public Usuario usuario(int id) {
-        return usuarioRepository.usuario(id);
-        // return mapaUsuario.get(id);
+        return usuarioRepository.findById(id).get();
     }
 
+    // Retorna Id se encontrar usuário com email/senha
+    // Retorna -1 caso contrário
     public int cadastrado(String email, String senha) {
-        return usuarioRepository.cadastrado(email, senha);
+        Usuario user = usuarioRepository.autenticar(email, senha);
+
+        if(user == null) return -1; //não encontrou usuário
+        return user.getId();        //encontrou usuário cadastrado
     }
 }

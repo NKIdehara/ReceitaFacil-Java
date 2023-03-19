@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.al.receitafacil.model.domain.IngredienteLiquido;
-// import br.edu.infnet.al.receitafacil.model.repository.IngredienteLiquidoRepository;
-// import br.edu.infnet.al.receitafacil.model.repository.UsuarioRepository;
 import br.edu.infnet.al.receitafacil.model.service.IngredienteLiquidoService;
 import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.al.receitafacil.model.domain.IngredienteFresco;
 import br.edu.infnet.al.receitafacil.model.service.IngredienteFrescoService;
-// import br.edu.infnet.al.receitafacil.model.repository.IngredienteFrescoRepository;
-// import br.edu.infnet.al.receitafacil.model.repository.UsuarioRepository;
 import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
 @Controller
