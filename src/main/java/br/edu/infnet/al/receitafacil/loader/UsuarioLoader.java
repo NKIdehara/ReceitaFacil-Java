@@ -22,7 +22,7 @@ public class UsuarioLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_usuarios.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_usuarios.txt";
             try {
                 FileReader fileUsuarios = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileUsuarios);

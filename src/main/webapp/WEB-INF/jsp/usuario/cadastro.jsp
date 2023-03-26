@@ -22,7 +22,7 @@
 
             <div class="mb-3 mt-3">
                 <label class="form-label">Senha:</label>
-                <input type="password" class="form-control" name="senha" value="123">
+                <input type="password" class="form-control" name="senha" value="123456">
             </div>
 
             <div class="mb-3 mt-3">
@@ -37,7 +37,7 @@
 
             <div class="mb-3 mt-3">
                 <label class="form-label">CEP:</label>
-                <input type="number" class="form-control" name="cep" value="12345678">
+                <input type="number" class="form-control" name="cep" value="20010020">
             </div>
 
             <button type="submit" class="btn btn-primary">Cadastrar</button>

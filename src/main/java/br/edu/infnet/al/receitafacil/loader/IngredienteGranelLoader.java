@@ -20,7 +20,7 @@ public class IngredienteGranelLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_ingredientes_graneis.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_ingredientes_graneis.txt";
             try {
                 FileReader fileGranels = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileGranels);

@@ -20,7 +20,7 @@ public class IngredienteLiquidoLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_ingredientes_liquido.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_ingredientes_liquido.txt";
             try {
                 FileReader fileLiquidos = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileLiquidos);

@@ -23,7 +23,7 @@ public class CozinheiroLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_cozinheiros.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_cozinheiros.txt";
             try {
                 FileReader fileCozinheiros = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileCozinheiros);

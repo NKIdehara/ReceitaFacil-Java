@@ -20,7 +20,7 @@ public class IngredienteFrescoLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_ingredientes_fresco.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_ingredientes_fresco.txt";
             try {
                 FileReader fileFrescos = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileFrescos);

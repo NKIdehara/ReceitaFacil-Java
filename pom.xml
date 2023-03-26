@@ -11,12 +11,23 @@
 	<groupId>br.edu.infnet.al</groupId>
 	<artifactId>receitafacil</artifactId>
 	<version>0.0.1</version>
+
+	<packaging>war</packaging>  <!-- [WAR] jar to war -->
+
 	<name>ReceitaFacil</name>
 	<description>Sistema para gerenciamento de receitas fáceis</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
+		<!-- [WAR] Remove Embedded Tomcat -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>

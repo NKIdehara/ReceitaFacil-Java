@@ -20,7 +20,7 @@ public class ReceitaLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         try {
-            String file = "input_receitas.txt";
+            String file = ".\\src\\main\\webapp\\resources\\input_receitas.txt";
             try {
                 FileReader fileReceitas = new FileReader(file);
                 BufferedReader registro = new BufferedReader(fileReceitas);
