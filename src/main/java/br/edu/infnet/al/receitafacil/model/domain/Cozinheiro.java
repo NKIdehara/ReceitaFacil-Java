@@ -18,8 +18,9 @@ public class Cozinheiro {
     private String email;
     private String cpf;
     @ManyToOne
-    @JoinColumn(name = "idUsuario")    
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+
     public void setNome(String nome) {
         this.nome = nome;
     }

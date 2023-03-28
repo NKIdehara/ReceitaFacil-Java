@@ -1,5 +1,10 @@
 package br.edu.infnet.al.receitafacil.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbIngredienteLiquido")
 public class IngredienteLiquido extends Ingrediente {
     private boolean quente;
     private boolean pacote;
@@ -32,9 +37,11 @@ public class IngredienteLiquido extends Ingrediente {
     public void setDensidade(float densidade) {
         this.densidade = densidade;
     }
+
+    public IngredienteLiquido() {}
  
-    public IngredienteLiquido(String nome, int idUsuario, float preco, float quantidade, String unidade, boolean quente, boolean pacote, float densidade) {
-        super(nome, idUsuario, preco, quantidade, unidade);
+    public IngredienteLiquido(String nome, float preco, float quantidade, String unidade, boolean quente, boolean pacote, float densidade) {
+        super(nome, preco, quantidade, unidade);
         this.quente = quente;
         this.pacote = pacote;
         this.densidade = densidade;       

@@ -1,10 +1,10 @@
-Arroz;1;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2
-Feijao;1;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3
-Macarrao;1;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2
-Feijao;2;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3
-Macarrao;2;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2
-Arroz;3;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2
-Macarrao;3;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2
-Arroz;4;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2
-Feijao;4;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3
-Macarrao;5;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2
+Arroz;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2;1
+Feijao;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3;1
+Macarrao;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2;1
+Feijao;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3;2
+Macarrao;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2;2
+Arroz;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2;3
+Macarrao;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2;3
+Arroz;Lavar o arroz, colocar agua e sal. Ferver ate a agua secar.;30;2;4
+Feijao;Lavar o feijao. Colocar no fogo baixo com agua ate ficar macio.;120;3;4
+Macarrao;Ferver o macarrao ate ficar macio. Colocar molho de preferencia.;15;2;5

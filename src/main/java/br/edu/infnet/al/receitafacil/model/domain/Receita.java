@@ -1,13 +1,36 @@
 package br.edu.infnet.al.receitafacil.model.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbReceita")
 public class Receita {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer idUsuario;
-	//private Map<Integer, Ingrediente> ingredientes = new HashMap<Integer, Ingrediente>();
     private String preparo;
     private int tempo;
     private int qtdePessoas;
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idCozinheiro")
+    private Cozinheiro cozinheiro;
+    @ManyToMany(cascade = CascadeType.DETACH)
+    private List<Ingrediente> ingredientes;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
 	public Integer getId() {
 		return id;
@@ -21,13 +44,6 @@ public class Receita {
     }
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getUsuario() {
-        return idUsuario;
-    }
-    public void setUsuario(Integer id) {
-        this.idUsuario = id;
     }
 
     public String getPreparo() {
@@ -51,9 +67,31 @@ public class Receita {
         this.qtdePessoas = qtdePessoas;
     }
 
-    public Receita(String nome, int idUsuario, String preparo,int tempo, int qtdePessoas) {
+    public Cozinheiro getCozinheiro() {
+        return this.cozinheiro;
+    }
+    public void setCozinheiro(Cozinheiro cozinheiro) {
+        this.cozinheiro = cozinheiro;
+    }
+
+    public List<Ingrediente> getIngredientes() {
+        return this.ingredientes;
+    }
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Receita() {}
+
+    public Receita(String nome, String preparo,int tempo, int qtdePessoas) {
         this.nome = nome;
-        this.idUsuario = idUsuario;
         this.preparo = preparo;
         this.tempo = tempo;
         this.qtdePessoas = qtdePessoas;

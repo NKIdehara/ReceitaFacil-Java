@@ -10,6 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.al.receitafacil.model.domain.Receita;
+import br.edu.infnet.al.receitafacil.model.domain.Usuario;
 import br.edu.infnet.al.receitafacil.model.service.ReceitaService;
 
 @Component
@@ -31,7 +32,10 @@ public class ReceitaLoader implements ApplicationRunner {
                 while(linha != null) {
                     campo = linha.split(";");
 
-                    Receita receita = new Receita(campo[0], Integer.parseInt(campo[1]), campo[2], Integer.parseInt(campo[3]), Integer.parseInt(campo[4]));
+                    Receita receita = new Receita(campo[0], campo[1], Integer.parseInt(campo[2]), Integer.parseInt(campo[3]));
+                    Usuario user = new Usuario();
+                    user.setId(Integer.parseInt(campo[4]));
+                    receita.setUsuario(user);
                     receitaService.incluir(receita);
                     
                     linha = registro.readLine();

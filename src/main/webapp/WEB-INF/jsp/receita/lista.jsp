@@ -59,21 +59,23 @@
                     <th>Preparo</th>
                     <th>Tempo (min)</th>
                     <th>Quantidade de Pessoas</th>
+                    <th>Cozinheiro</th>
+                    <th>Ingredientes</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <%for(Receita r : receitas) {%>
-                    <%if(r.getUsuario() == user.getId()) {%>
-                        <tr>
-                            <td><%=r.getId()%></td>
-                            <td><%=r.getNome()%></td>
-                            <td><%=r.getPreparo()%></td>
-                            <td><%=r.getTempo()%></td>
-                            <td><%=r.getQtdePessoas()%></td>
-                            <td><a href="/receita/<%=r.getId()%>/excluir">excluir</a></td>
-                        </tr>
-                    <%}%>
+                    <tr>
+                        <td><%=r.getId()%></td>
+                        <td><%=r.getNome()%></td>
+                        <td><%=r.getPreparo()%></td>
+                        <td><%=r.getTempo()%></td>
+                        <td><%=r.getQtdePessoas()%></td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td><a href="/receita/<%=r.getId()%>/excluir">excluir</a></td>
+                    </tr>
                 <%}%>
             </tbody>
         </table>

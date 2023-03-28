@@ -10,6 +10,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.al.receitafacil.model.domain.IngredienteGranel;
+import br.edu.infnet.al.receitafacil.model.domain.Usuario;
 import br.edu.infnet.al.receitafacil.model.service.IngredienteGranelService;
 
 @Component
@@ -31,7 +32,10 @@ public class IngredienteGranelLoader implements ApplicationRunner {
                 while(linha != null) {
                     campo = linha.split(";");
 
-                    IngredienteGranel granel = new IngredienteGranel(campo[0], Integer.parseInt(campo[1]), Float.parseFloat(campo[2]), Float.parseFloat(campo[3]), campo[4], (campo[5].equalsIgnoreCase("S")) ? true : false, (campo[6].equalsIgnoreCase("S")) ? true : false, Float.parseFloat(campo[7]));
+                    IngredienteGranel granel = new IngredienteGranel(campo[0], Float.parseFloat(campo[1]), Float.parseFloat(campo[2]), campo[3], (campo[4].equalsIgnoreCase("S")) ? true : false, (campo[5].equalsIgnoreCase("S")) ? true : false, Float.parseFloat(campo[6]));
+                    Usuario user = new Usuario();
+                    user.setId(Integer.parseInt(campo[7]));
+                    granel.setUsuario(user);
                     ingredienteGranelService.incluir(granel);
                     
                     linha = registro.readLine();

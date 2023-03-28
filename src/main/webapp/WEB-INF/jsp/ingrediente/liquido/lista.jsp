@@ -67,19 +67,17 @@
             </thead>
             <tbody>
                 <%for(IngredienteLiquido i : ingredientes) {%>
-                    <%if(i.getUsuario() == user.getId()) {%>
-                        <tr>
-                            <td><%=i.getId()%></td>
-                            <td><%=i.getNome()%></td>
-                            <td><%=i.getPreco()%></td>
-                            <td><%=i.getQuantidade()%></td>
-                            <td><%=i.getUnidade()%></td>
-                            <td><%if(i.isQuente()) { %>Sim<% } else { %>Não<% } %></td>
-                            <td><%if(i.isPacote()) { %>Sim<% } else { %>Não<% } %></td>
-                            <td><%=i.getDensidade()%></td>
-                            <td><a href="/ingrediente/liquido/<%=i.getId()%>/excluir">excluir</a></td>
-                        </tr>
-                    <%}%>
+                    <tr>
+                        <td><%=i.getId()%></td>
+                        <td><%=i.getNome()%></td>
+                        <td><%=i.getPreco()%></td>
+                        <td><%=i.getQuantidade()%></td>
+                        <td><%=i.getUnidade()%></td>
+                        <td><%if(i.isQuente()) { %>Sim<% } else { %>Não<% } %></td>
+                        <td><%if(i.isPacote()) { %>Sim<% } else { %>Não<% } %></td>
+                        <td><%=i.getDensidade()%></td>
+                        <td><a href="/ingrediente/liquido/<%=i.getId()%>/excluir">excluir</a></td>
+                    </tr>
                 <%}%>
             </tbody>
         </table>

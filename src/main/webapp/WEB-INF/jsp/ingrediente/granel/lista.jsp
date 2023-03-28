@@ -67,19 +67,17 @@
             </thead>
             <tbody>
                 <%for(IngredienteGranel i : ingredientes) {%>
-                    <%if(i.getUsuario() == user.getId()) {%>
-                        <tr>
-                            <td><%=i.getId()%></td>
-                            <td><%=i.getNome()%></td>
-                            <td><%=i.getPreco()%></td>
-                            <td><%=i.getQuantidade()%></td>
-                            <td><%=i.getUnidade()%></td>
-                            <td><%if(i.isPerecivel()) { %>Sim<% } else { %>Não<% } %></td>
-                            <td><%if(i.isFracionado()) { %>Sim<% } else { %>Não<% } %></td>
-                            <td><%=i.getDensidade()%></td>
-                            <td><a href="/ingrediente/granel/<%=i.getId()%>/excluir">excluir</a></td>
-                        </tr>
-                    <%}%>
+                    <tr>
+                        <td><%=i.getId()%></td>
+                        <td><%=i.getNome()%></td>
+                        <td><%=i.getPreco()%></td>
+                        <td><%=i.getQuantidade()%></td>
+                        <td><%=i.getUnidade()%></td>
+                        <td><%if(i.isPerecivel()) { %>Sim<% } else { %>Não<% } %></td>
+                        <td><%if(i.isFracionado()) { %>Sim<% } else { %>Não<% } %></td>
+                        <td><%=i.getDensidade()%></td>
+                        <td><a href="/ingrediente/granel/<%=i.getId()%>/excluir">excluir</a></td>
+                    </tr>
                 <%}%>
             </tbody>
         </table>

@@ -24,6 +24,12 @@ public class Usuario {
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Cozinheiro> cozinheiros;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Ingrediente> ingredientes;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Receita> receitas;
     
     public void setNome(String nome) {
         this.nome = nome;
@@ -72,6 +78,20 @@ public class Usuario {
     }
     public void setCozinheiros(List<Cozinheiro> cozinheiros) {
         this.cozinheiros = cozinheiros;
+    }
+
+    public List<Ingrediente> getIngredientes() {
+        return this.ingredientes;
+    }
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public List<Receita> getReceitas() {
+        return this.receitas;
+    }
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
     }
 
     public Usuario() {

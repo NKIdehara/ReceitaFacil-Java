@@ -61,6 +61,8 @@
                     <th>Telefone</th>
                     <th>CEP</th>
                     <th>Quantidade de<br>Cozinheiros</th>
+                    <th>Quantidade de<br>Receitas</th>
+                    <th>Quantidade de<br>Ingredientes</th>
                     <th></th>
                 </tr>
             </thead>
@@ -74,6 +76,8 @@
                         <td><%=u.getTelefone()%></td>
                         <td><%=u.getCep()%></td>
                         <td><%=u.getCozinheiros().size()%></td>
+                        <td><%=u.getReceitas().size()%></td>
+                        <td><%=u.getIngredientes().size()%></td>
                         <td><a href="/usuario/<%=u.getId()%>/excluir">excluir</a></td>
                     </tr>
                 <%}%>

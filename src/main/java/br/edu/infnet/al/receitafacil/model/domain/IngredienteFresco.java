@@ -1,10 +1,14 @@
 package br.edu.infnet.al.receitafacil.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbIngredienteFresco")
 public class IngredienteFresco extends Ingrediente {
     private boolean refrigerado;
     private boolean comCasca;
     private int pedacos;
-
 
     public boolean isRefrigerado() {
         return this.refrigerado;
@@ -33,8 +37,10 @@ public class IngredienteFresco extends Ingrediente {
         this.pedacos = pedacos;
     }
  
-    public IngredienteFresco(String nome, int idUsuario, float preco, float quantidade, String unidade, boolean refrigerado, boolean comCasca, int pedacos) {
-        super(nome, idUsuario, preco, quantidade, unidade);
+    public IngredienteFresco() {}
+    
+    public IngredienteFresco(String nome, float preco, float quantidade, String unidade, boolean refrigerado, boolean comCasca, int pedacos) {
+        super(nome, preco, quantidade, unidade);
         this.refrigerado = refrigerado;
         this.comCasca = comCasca;
         this.pedacos = pedacos;       

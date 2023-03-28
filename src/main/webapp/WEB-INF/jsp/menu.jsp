@@ -5,7 +5,7 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <div class="d-flex flex-column">
         <div class="rounded mx-auto d-block">
-            <img src="./../../resources/ic_cook.png" height="100">
+            <img id="ReceitaFacil" src="./../../resources/ic_cook.png" onerror="this.onerror=null; this.src='./../../../resources/ic_cook.png'" height="100">
         </div>
             <div class="text-nowrap bd-highlight">
             <h2>Receita Fácil</h2>

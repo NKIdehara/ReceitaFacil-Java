@@ -14,4 +14,3 @@ public interface CozinheiroRepository extends CrudRepository<Cozinheiro, Integer
 	@Query("from Cozinheiro c where c.usuario.id = :userId")
 	List<Cozinheiro> listar(Integer userId);
 }
-

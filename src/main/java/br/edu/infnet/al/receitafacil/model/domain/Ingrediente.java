@@ -1,12 +1,34 @@
 package br.edu.infnet.al.receitafacil.model.domain;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbIngrediente")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Ingrediente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer idUsuario;
     private float preco;
     private float quantidade;
     private String unidade;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+    @ManyToMany(mappedBy = "ingredientes")
+    private List<Receita> receitas;
 
     public Integer getId() {
         return this.id;
@@ -20,13 +42,6 @@ public abstract class Ingrediente {
     }
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getUsuario() {
-        return idUsuario;
-    }
-    public void setUsuario(Integer id) {
-        this.idUsuario = id;
     }
 
     public float getPreco() {
@@ -49,10 +64,25 @@ public abstract class Ingrediente {
     public void setUnidade(String unidade) {
         this.unidade = unidade;
     }
-    
-    public Ingrediente(String nome, int idUsuario, float preco, float quantidade, String unidade) {
+ 
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Receita> getReceitas() {
+        return this.receitas;
+    }
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
+    }
+
+    public Ingrediente() {}
+
+    public Ingrediente(String nome, float preco, float quantidade, String unidade) {
         this.nome = nome;
-        this.idUsuario = idUsuario;
         this.preco = preco;
         this.quantidade = quantidade;
         this.unidade = unidade;
