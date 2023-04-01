@@ -30,9 +30,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Ingredientes</a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/ingrediente/fresco/lista">Fresco</a></li>
                             <li><a class="dropdown-item" href="/ingrediente/granel/lista">Granel</a></li>
                             <li><a class="dropdown-item" href="/ingrediente/liquido/lista">Líquido</a></li>
-                            <li><a class="dropdown-item" href="/ingrediente/fresco/lista">Fresco</a></li>
                         </ul>
                     </li>
                 </ul>

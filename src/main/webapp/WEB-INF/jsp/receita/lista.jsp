@@ -36,7 +36,7 @@
             <%if(opc.equals("e")) {%>
                 <div class="alert alert-warning alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Receita modificada!</strong> <%=msg%>
+                    <strong>⚠️</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("x")) {%>
@@ -58,7 +58,7 @@
                     <th>Nome</th>
                     <th>Preparo</th>
                     <th>Tempo (min)</th>
-                    <th>Quantidade de Pessoas</th>
+                    <th>Quantidade<br>de Pessoas</th>
                     <th>Cozinheiro</th>
                     <th>Ingredientes</th>
                     <th></th>
@@ -72,8 +72,8 @@
                         <td><%=r.getPreparo()%></td>
                         <td><%=r.getTempo()%></td>
                         <td><%=r.getQtdePessoas()%></td>
-                        <td>---</td>
-                        <td>---</td>
+                        <td><%=r.getCozinheiro().getNome()%></td>
+                        <td><%if(r.getIngredientes() != null) { %><%=r.getIngredientes().size()%><%} else {%>0<%}%></td>
                         <td><a href="/receita/<%=r.getId()%>/excluir">excluir</a></td>
                     </tr>
                 <%}%>

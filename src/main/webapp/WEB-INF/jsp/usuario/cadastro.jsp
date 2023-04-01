@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="br.edu.infnet.al.receitafacil.model.domain.Endereco"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -12,9 +13,27 @@
 <body>
     <%@include file="/WEB-INF/jsp/menu.jsp" %>
     <div class="container">
-        <form action="/usuario/incluir" method="post">
-            <h3>Cadastro de Usuários</h3>
+        <h3>Cadastro de Usuários</h3>
+        <form action="/cep" method="post">
+            <div class="mb-3 mt-3">
+                <label class="form-label">CEP:</label>
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="submit" id="busca-cep">Buscar</button>
+                    <input type="number" class="form-control" name="buscacep" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "8" value="20010020">
+                </div>
+            </div>
+        </form>
+        <% String encontrado = (String)request.getAttribute("encontrado");%>
+        <% Endereco endereco = (Endereco)request.getAttribute("endereco");%>
+        <%if(encontrado != null) {%>
+            <%if(encontrado.equals("n")) {%>
+                <div class="alert alert-danger" role="alert">
+                    <strong>CEP incorreto!</strong> 
+                </div>
+            <%}%>
+        <%}%>
 
+        <form action="/usuario/incluir" method="post">
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
                 <input type="text" class="form-control" name="nome" value="Admin">
@@ -22,7 +41,7 @@
 
             <div class="mb-3 mt-3">
                 <label class="form-label">Senha:</label>
-                <input type="password" class="form-control" name="senha" value="123456">
+                <input type="password" class="form-control" name="senha" value="123456" >
             </div>
 
             <div class="mb-3 mt-3">
@@ -32,18 +51,40 @@
 
             <div class="mb-3 mt-3">
                 <label class="form-label">Telefone:</label>
-                <input type="number" class="form-control" name="telefone" value="012934567899">
+                <input type="number" class="form-control" name="telefone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12" value="012934567899">
             </div>
 
-            <div class="mb-3 mt-3">
-                <label class="form-label">CEP:</label>
-                <input type="number" class="form-control" name="cep" value="20010020">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <%if(encontrado != null) {%>
+                <%if(encontrado.equals("s")) {%>
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">CEP:</label>
+                        <input type="text" class="form-control" name="cep" value="<%=endereco.getCep()%>" readonly>
+                    </div>
+            
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Endereço:</label>
+                        <input type="text" class="form-control" name="endereco" value="<%=endereco.getLogradouro()%>" readonly>
+                    </div>
+            
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Bairro:</label>
+                        <input type="text" class="form-control" name="bairro" value="<%=endereco.getBairro()%>" readonly>
+                    </div>
+            
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Cidade:</label>
+                        <input type="text" class="form-control" name="cidade" value="<%=endereco.getLocalidade()%>" readonly>
+                    </div>
+            
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">UF:</label>
+                        <input type="text" class="form-control" name="uf" value="<%=endereco.getUf()%>" readonly>
+                    </div>
+                        
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <%}%>
+            <%}%>
         </form>
     </div>
-
 </body>
-
 </html>

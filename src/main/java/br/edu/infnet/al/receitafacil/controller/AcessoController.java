@@ -26,7 +26,6 @@ public class AcessoController {
 
     @GetMapping(value = "/logout")
     public String telaLogout(HttpSession session, SessionStatus status) {
-        //UsuarioRepository.setLogin(-1);
         usuarioService.setLogin(-1);
         if(session != null) {
             session.removeAttribute("usuario");

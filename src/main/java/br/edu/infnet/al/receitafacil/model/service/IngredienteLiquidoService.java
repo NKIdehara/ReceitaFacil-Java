@@ -32,21 +32,7 @@ public class IngredienteLiquidoService {
         return (Collection<IngredienteLiquido>) ingredienteLiquidoRepository.listar(usuario.getId());
     }
 
-    public IngredienteLiquido fresco(int id) {
+    public IngredienteLiquido liquido(int id) {
         return ingredienteLiquidoRepository.findById(id).get();
     }
-
-/*
-    public boolean incluir(IngredienteLiquido liquido) {
-        return ingredienteLiquidoRepository.incluir(liquido);
-    }
-
-	public IngredienteLiquido excluir(Integer key) {
-		return ingredienteLiquidoRepository.excluir(key);
-	}
-
-    public Collection<IngredienteLiquido> listar() {
-        return ingredienteLiquidoRepository.listar();
-    }
-*/
 }

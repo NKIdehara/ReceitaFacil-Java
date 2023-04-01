@@ -36,7 +36,7 @@
             <%if(opc.equals("e")) {%>
                 <div class="alert alert-warning alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Ingrediente modificado!</strong> <%=msg%>
+                    <strong>⚠️</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("x")) {%>

@@ -30,19 +30,19 @@
             <%if(opc.equals("i")) {%>
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Novo usuário!</strong> <%=msg%>
+                    <strong>Novo(a) usuário(a)!</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("e")) {%>
                 <div class="alert alert-warning alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Usuário modificado!</strong> <%=msg%>
+                    <strong>⚠️</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("x")) {%>
                 <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Usuário excluído!</strong> <%=msg%>
+                    <strong>Usuário(a) excluído(a)!</strong> <%=msg%>
                 </div>
             <%}%>
         <%}%>
@@ -63,7 +63,9 @@
                     <th>Quantidade de<br>Cozinheiros</th>
                     <th>Quantidade de<br>Receitas</th>
                     <th>Quantidade de<br>Ingredientes</th>
-                    <th></th>
+                    <%if(user.isAdmin()) {%>
+                        <th></th>
+                    <%}%>
                 </tr>
             </thead>
             <tbody>
@@ -75,10 +77,16 @@
                         <td><%=u.getSenha()%></td>
                         <td><%=u.getTelefone()%></td>
                         <td><%=u.getCep()%></td>
-                        <td><%=u.getCozinheiros().size()%></td>
-                        <td><%=u.getReceitas().size()%></td>
-                        <td><%=u.getIngredientes().size()%></td>
-                        <td><a href="/usuario/<%=u.getId()%>/excluir">excluir</a></td>
+                        <td><%if(u.getCozinheiros() != null) { %><%=u.getCozinheiros().size()%><%} else {%>0<%}%></td>
+                        <td><%if(u.getReceitas() != null) { %><%=u.getReceitas().size()%><%} else {%>0<%}%></td>
+                        <td><%if(u.getIngredientes() != null) { %><%=u.getIngredientes().size()%><%} else {%>0<%}%></td>
+                        <%if(user.isAdmin()) {%>
+                            <%if(!u.getEmail().equals(user.getEmail())) {%>
+                                <td><a href="/usuario/<%=u.getId()%>/excluir">excluir</a></td>
+                            <%} else {%>
+                                <td><a>⛔</a></td>
+                            <%}%>
+                        <%}%>
                     </tr>
                 <%}%>
             </tbody>

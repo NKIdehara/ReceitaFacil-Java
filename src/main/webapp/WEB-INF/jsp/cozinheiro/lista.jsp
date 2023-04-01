@@ -30,19 +30,19 @@
             <%if(opc.equals("i")) {%>
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Novo usuário!</strong> <%=msg%>
+                    <strong>Novo(a) Cozinheiro(a)!</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("e")) {%>
                 <div class="alert alert-warning alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Usuário modificado!</strong> <%=msg%>
+                    <strong>⚠️</strong> <%=msg%>
                 </div>
             <%}%>
             <%if(opc.equals("x")) {%>
                 <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Usuário excluído!</strong> <%=msg%>
+                    <strong>Cozinheiro(a) excluído(a)!</strong> <%=msg%>
                 </div>
             <%}%>
         <%}%>

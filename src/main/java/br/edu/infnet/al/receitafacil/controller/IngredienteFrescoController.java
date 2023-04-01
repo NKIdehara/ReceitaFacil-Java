@@ -54,10 +54,15 @@ public class IngredienteFrescoController {
 
 	@GetMapping(value = "/ingrediente/fresco/{id}/excluir")
 	public String ingredienteFrescoExcluir(Model model, @PathVariable Integer id, @SessionAttribute("usuario") Usuario usuario) {
-        IngredienteFresco fresco = ingredienteFrescoService.excluir(id);
-		
-        model.addAttribute("opcao", "x");
-        model.addAttribute("mensagem", fresco.getNome() + " foi excluído com sucesso.");
+        String ingrediente = ingredienteFrescoService.fresco(id).getNome();
+        try {
+            IngredienteFresco fresco = ingredienteFrescoService.excluir(id);
+            model.addAttribute("opcao", "x");
+            model.addAttribute("mensagem", fresco.getNome() + " foi excluído com sucesso.");    
+        } catch(Exception e) {
+            model.addAttribute("opcao", "e");
+            model.addAttribute("mensagem", "Impossível excluir o ingrediente " + ingrediente + "!");    
+        }
 
         return ingredienteFrescoLista(model, usuario);
 	}

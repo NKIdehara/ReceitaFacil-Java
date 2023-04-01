@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="java.util.Collection"%>
+<%@ page import ="java.util.HashSet"%>
+<%@ page import ="br.edu.infnet.al.receitafacil.model.domain.Cozinheiro"%>
+<%@ page import ="br.edu.infnet.al.receitafacil.model.domain.Ingrediente"%>
 <!doctype html>
 <html lang="pt-br">
 
@@ -35,7 +39,50 @@
                 <input type="text" class="form-control" name="qtdePessoas" value="1">                
             </div>
 
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <!-- COZINHEIROS -->
+            <% 
+                Collection<Cozinheiro> cozinheiros = new HashSet<Cozinheiro>();
+                cozinheiros = (Collection)request.getAttribute("cozinheiros");
+            %>
+            <div class="mb-3 mt-3">
+                <label class="form-label">Cozinheiro(a):</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="cozinheiro">
+                    <%for(Cozinheiro c : cozinheiros) {%>
+                        <option value="<%=c.getId()%>"><%=c.getNome()%></option>
+                    <%}%>
+                </select>
+                <%if(cozinheiros.isEmpty()) {%>
+                    <div class="alert alert-warning" role="alert">Lista de Cozinheiros está vazia!</div>
+                <%}%>
+            </div>
+
+            <!-- INGREDIENTES -->
+            <%
+                Collection<Ingrediente> ingredientes = new HashSet<Ingrediente>();
+                ingredientes = (Collection)request.getAttribute("ingredientes");
+            %>
+            <div class="mb-3 mt-3">
+                <ol class="list-group ">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-normal">Ingredientes:</div>
+                            <%for(Ingrediente ingrediente : ingredientes) {%>
+                                <div><label class="form-check-label"><input class="form-check-input me-1" type="checkbox" name="ingredientes" value="<%=ingrediente.getId()%>"><%=ingrediente.getNome()%></label></div>
+                            <%}%>
+                        </div>
+                        <span class="badge bg-primary rounded-pill"><%=ingredientes.size()%></span>
+                    </li>
+                </ol>
+                <%if(ingredientes.isEmpty()) {%>
+                    <div class="alert alert-warning" role="alert">Lista de Ingredientes está vazia!</div>
+                <%}%>
+            </div>
+
+            <%if(!cozinheiros.isEmpty() && !ingredientes.isEmpty()) {%>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <%} else {%>
+                <button type="submit" class="btn btn-primary" disabled>Cadastrar</button>
+            <%}%>                
         </form>
     </div>
 

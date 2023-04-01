@@ -14,12 +14,5 @@ public class ReceitaFacilApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ReceitaFacilApplication.class);
-	}
-	
+	}	
 }
-
-//public class ReceitaFacilApplication {
-// 	public static void main(String[] args) {
-// 		SpringApplication.run(ReceitaFacilApplication.class, args);
-// 	}
-// }

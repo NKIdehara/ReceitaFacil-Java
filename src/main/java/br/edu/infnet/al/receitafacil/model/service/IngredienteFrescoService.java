@@ -35,18 +35,4 @@ public class IngredienteFrescoService {
     public IngredienteFresco fresco(int id) {
         return ingredienteFrescoRepository.findById(id).get();
     }
-
-/*
-    public boolean incluir(IngredienteFresco fresco) {
-        return ingredienteFrescoRepository.incluir(fresco);
-    }
-
-	public IngredienteFresco excluir(Integer key) {
-		return ingredienteFrescoRepository.excluir(key);
-	}
-
-    public Collection<IngredienteFresco> listar() {
-        return ingredienteFrescoRepository.listar();
-    }
-*/
 }

@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+// import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.al.receitafacil.model.domain.Receita;
 
-@Repository
+// @Repository
 public interface ReceitaRepository extends CrudRepository<Receita, Integer> {
 
-	@Query("from Receita r where r.usuario.id = :userId")
+	@Query("from Receita r where r.usuario.id = :userId order by nome asc")
 	List<Receita> listar(Integer userId);
 }

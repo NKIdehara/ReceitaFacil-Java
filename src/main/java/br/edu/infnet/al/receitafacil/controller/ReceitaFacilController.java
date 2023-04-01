@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
@@ -12,12 +11,6 @@ import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 public class ReceitaFacilController {
     @Autowired
     private UsuarioService usuarioService;
-
-    @RequestMapping("/test")
-    public String init() {
-        System.out.println("Teste de sistema.");
-        return "index";
-    }
 
     @GetMapping(value = "/")
     public String appInicio() {

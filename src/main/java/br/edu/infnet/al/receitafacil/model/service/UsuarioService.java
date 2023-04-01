@@ -34,7 +34,8 @@ public class UsuarioService {
     }
 
     public Collection<Usuario> listar() {
-        return (Collection<Usuario>) usuarioRepository.findAll();
+        return (Collection<Usuario>) usuarioRepository.listar();
+        //return (Collection<Usuario>) usuarioRepository.findAll();
     }
 
     public Usuario usuario(int id) {

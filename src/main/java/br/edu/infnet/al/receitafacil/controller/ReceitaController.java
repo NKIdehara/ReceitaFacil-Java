@@ -6,12 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import br.edu.infnet.al.receitafacil.model.domain.Receita;
 import br.edu.infnet.al.receitafacil.model.domain.Usuario;
+import br.edu.infnet.al.receitafacil.model.service.CozinheiroService;
+import br.edu.infnet.al.receitafacil.model.service.IngredienteService;
 import br.edu.infnet.al.receitafacil.model.service.ReceitaService;
 
 @Controller
@@ -20,8 +21,16 @@ public class ReceitaController {
     @Autowired
     private ReceitaService receitaService;
 
+    @Autowired
+    private CozinheiroService cozinheiroService;
+
+    @Autowired
+    private IngredienteService ingredienteService;
+
     @GetMapping(value = "/receita/cadastro")
-    public String receitaCadastro() {
+    public String receitaCadastro(Model model, @SessionAttribute("usuario") Usuario usuario) {
+        model.addAttribute("cozinheiros", cozinheiroService.listar(usuario));
+        model.addAttribute("ingredientes", ingredienteService.listar(usuario));
         return "receita/cadastro";
     }
 
@@ -32,8 +41,7 @@ public class ReceitaController {
     }
 
     @PostMapping(value = "/receita/incluir")
-    public String receitaIncluir(Model model, @RequestParam String nome, @RequestParam String preparo, @RequestParam int tempo, @RequestParam int qtdePessoas, @SessionAttribute("usuario") Usuario usuario) {
-        Receita receita = new Receita(nome, preparo, tempo, qtdePessoas);
+    public String receitaIncluir(Model model, Receita receita, @SessionAttribute("usuario") Usuario usuario) {
         receita.setUsuario(usuario);
         receitaService.incluir(receita);
 

@@ -32,21 +32,7 @@ public class IngredienteGranelService {
         return (Collection<IngredienteGranel>) ingredienteGranelRepository.listar(usuario.getId());
     }
 
-    public IngredienteGranel fresco(int id) {
+    public IngredienteGranel granel(int id) {
         return ingredienteGranelRepository.findById(id).get();
     }
-
-/*
-    public boolean incluir(IngredienteGranel granel) {
-        return ingredienteGranelRepository.incluir(granel);
-    }
-
-	public IngredienteGranel excluir(Integer key) {
-		return ingredienteGranelRepository.excluir(key);
-	}
-
-    public Collection<IngredienteGranel> listar() {
-        return ingredienteGranelRepository.listar();
-    }
-*/
 }

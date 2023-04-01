@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+// import org.springframework.stereotype.Repository;
 
 import br.edu.infnet.al.receitafacil.model.domain.IngredienteGranel;
 
-@Repository
+// @Repository
 public interface IngredienteGranelRepository extends CrudRepository<IngredienteGranel, Integer> {
 
-	@Query("from IngredienteGranel ig where ig.usuario.id = :userId")
+	@Query("from IngredienteGranel ig where ig.usuario.id = :userId order by nome asc")
 	List<IngredienteGranel> listar(Integer userId);
 }

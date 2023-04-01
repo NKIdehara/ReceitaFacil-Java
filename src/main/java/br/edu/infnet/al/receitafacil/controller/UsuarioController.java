@@ -42,7 +42,7 @@ public class UsuarioController {
 
     @PostMapping(value = "/usuario/incluir")
     public String usuarioIncluir(Model model, @RequestParam String nome, @RequestParam String senha, @RequestParam String email, @RequestParam String telefone, @RequestParam String cep) {
-        Usuario usuario = new Usuario(nome, email, senha, Long.parseLong(telefone), Integer.parseInt(cep));
+        Usuario usuario = new Usuario(nome, email, senha, telefone, cep, false);
         usuarioService.incluir(usuario);
 
         model.addAttribute("opcao", "i");
@@ -59,11 +59,15 @@ public class UsuarioController {
 
 	@GetMapping(value = "/usuario/{id}/excluir")
 	public String usuarioExcluir(Model model, @PathVariable Integer id) {
-		Usuario usuario = usuarioService.excluir(id);
-		
-        model.addAttribute("opcao", "x");
-        model.addAttribute("mensagem", usuario.getNome() + " foi excluído com sucesso.");
-
+        String user = usuarioService.usuario(id).getNome();
+        try {
+            Usuario usuario = usuarioService.excluir(id);		
+            model.addAttribute("opcao", "x");
+            model.addAttribute("mensagem", usuario.getNome() + " foi excluído(a) com sucesso.");
+        } catch(Exception e) {
+            model.addAttribute("opcao", "e");
+            model.addAttribute("mensagem", "Impossível excluir o(a) usuário(a) " + user + "!");
+        }
         return usuarioLista(model);
 	}
 
@@ -72,7 +76,7 @@ public class UsuarioController {
 		Usuario usuario = usuarioService.usuario(id);
         Endereco endereco = new Endereco();
         try {
-            endereco = buscaCep(Integer.toString(usuario.getCep()));
+            endereco = buscaCep(usuario.getCep());
         } catch (Exception e) {
         }
 
@@ -103,8 +107,7 @@ public class UsuarioController {
             Endereco endereco = gson.fromJson(convertJsonString, Endereco.class);
             return endereco;
         } catch (Exception e) {
-            throw  new Exception("Erro de conexão- status Code [" + conexao.getResponseCode() + "]. " + e.toString()); 
+            throw  new Exception("Erro de conexão: status Code [" + conexao.getResponseCode() + "]. " + e.toString()); 
         }
     }
-
 }

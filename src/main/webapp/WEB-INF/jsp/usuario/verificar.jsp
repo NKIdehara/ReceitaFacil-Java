@@ -35,7 +35,7 @@
 
         <div class="mb-3 mt-3">
             <label class="form-label">CEP:</label>
-            <input type="number" class="form-control" name="cep" value="<%=u.getCep()%>" readonly>
+            <input type="text" class="form-control" name="cep" value="<%=u.getCep()%>" readonly>
         </div>
 
         <div class="mb-3 mt-3">

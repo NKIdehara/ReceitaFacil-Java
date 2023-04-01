@@ -35,18 +35,4 @@ public class ReceitaService {
     public Receita cozinheiro(int id) {
         return receitaRepository.findById(id).get();
     }
-
-/*
-    public boolean incluir(Receita receita) {
-        return receitaRepository.incluir(receita);
-    }
-
-	public Receita excluir(Integer key) {
-        return receitaRepository.excluir(key);
-	}
-
-    public Collection<Receita> listar() {
-        return receitaRepository.listar();
-    }    
-*/
 }

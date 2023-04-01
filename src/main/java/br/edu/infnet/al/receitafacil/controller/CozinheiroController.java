@@ -45,10 +45,15 @@ public class CozinheiroController {
 
 	@GetMapping(value = "/cozinheiro/{id}/excluir")
 	public String cozinheiroExcluir(Model model, @PathVariable Integer id, @SessionAttribute("usuario") Usuario usuario) {
-		Cozinheiro cozinheiro = cozinheiroService.excluir(id);
-		
-        model.addAttribute("opcao", "x");
-        model.addAttribute("mensagem", cozinheiro.getNome() + " foi excluído com sucesso.");
+        String cook = cozinheiroService.cozinheiro(id).getNome();
+        try {
+            Cozinheiro cozinheiro = cozinheiroService.excluir(id);
+            model.addAttribute("opcao", "x");
+            model.addAttribute("mensagem", cozinheiro.getNome() + " foi excluído com sucesso.");    
+        } catch(Exception e) {
+            model.addAttribute("opcao", "e");
+            model.addAttribute("mensagem", "Impossível excluir o(a) cozinheiro(a) " + cook + "!");    
+        }
 
         return cozinheiroLista(model, usuario);
 	}

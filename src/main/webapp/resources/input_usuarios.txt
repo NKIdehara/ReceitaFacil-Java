@@ -1,6 +1,6 @@
-Administrador;admin@email.com;123456;011987654321;20230010
-Luiz da Silva;lsilva@email.com;123456;011987654321;30170000
-Maria Joaquina;mjoaquina@email.com;123456;011987654321;60160150
-Pedro Pereira;ppereira@email.com;123456;011987654321;88020170
-Sofia Oliveira;soliveira@email.com;123456;011987654321;90030020
-Laura Vieira;lvieira@email.com;123456;011987654321;69020015
+Administrador;admin@email.com;123456;011987654321;20230-010;1
+Luiz da Silva;lsilva@email.com;123456;011987654321;30170-000;0
+Maria Joaquina;mjoaquina@email.com;123456;011987654321;60160-150;0
+Pedro Pereira;ppereira@email.com;123456;011987654321;88020-170;0
+Sofia Oliveira;soliveira@email.com;123456;011987654321;90030-020;1
+Laura Vieira;lvieira@email.com;123456;011987654321;69020-015;1

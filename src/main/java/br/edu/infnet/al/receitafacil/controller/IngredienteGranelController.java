@@ -54,10 +54,15 @@ public class IngredienteGranelController {
 
 	@GetMapping(value = "/ingrediente/granel/{id}/excluir")
 	public String ingredienteGranelExcluir(Model model, @PathVariable Integer id, @SessionAttribute("usuario") Usuario usuario) {
-        IngredienteGranel granel = ingredienteGranelService.excluir(id);
-		
-        model.addAttribute("opcao", "x");
-        model.addAttribute("mensagem", granel.getNome() + " foi excluído com sucesso.");
+        String ingrediente = ingredienteGranelService.granel(id).getNome();
+        try {
+            IngredienteGranel granel = ingredienteGranelService.excluir(id);		
+            model.addAttribute("opcao", "x");
+            model.addAttribute("mensagem", granel.getNome() + " foi excluído com sucesso.");
+        } catch(Exception e) {
+            model.addAttribute("opcao", "e");
+            model.addAttribute("mensagem", "Impossível excluir o ingrediente " + ingrediente + "!");    
+        }
 
         return ingredienteGranelLista(model, usuario);
 	}
