@@ -14,6 +14,7 @@
     <%@include file="/WEB-INF/jsp/menu.jsp" %>
     <div class="container">
         <h3>Cadastro de Usuários</h3>
+
         <form action="/cep" method="post">
             <div class="mb-3 mt-3">
                 <label class="form-label">CEP:</label>
@@ -33,10 +34,22 @@
             <%}%>
         <%}%>
 
-        <form action="/usuario/incluir" method="post">
+        <form action="/usuario/incluir" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Foto:</label>
+                <!-- <input class="form-control" type="file" id="formFile" name="foto" onchange="preview()"> -->
+                <input class="form-control" type="file" id="formFile" name="file" onchange="preview()">
+                <img id="frame" src="" class="img-fluid" width="200" name="imagem"/>
+            </div>
+            <script>
+                function preview() {
+                    frame.src = URL.createObjectURL(event.target.files[0]);
+                }
+            </script>
+
             <div class="mb-3 mt-3">
                 <label class="form-label">Nome:</label>
-                <input type="text" class="form-control" name="nome" value="Admin">
+                <input type="text" class="form-control" id="nome" name="nome" value="Admin">
             </div>
 
             <div class="mb-3 mt-3">

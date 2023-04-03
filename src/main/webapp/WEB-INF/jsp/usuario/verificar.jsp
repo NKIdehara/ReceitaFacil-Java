@@ -18,6 +18,10 @@
     <div class="container">
         <h3>Verificação de Usuário</h3>
 
+        <div class="mb-3">
+            <img id="frame" src="<%=u.getFoto()%>" class="img-fluid" width="200" />
+        </div>
+
         <div class="mb-3 mt-3">
             <label class="form-label">Nome:</label>
             <input type="text" class="form-control" name="nome" value="<%=u.getNome()%>" readonly>

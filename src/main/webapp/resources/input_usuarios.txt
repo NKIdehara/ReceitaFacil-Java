@@ -1,6 +1,6 @@
-Administrador;admin@email.com;123456;011987654321;20230-010;1
-Luiz da Silva;lsilva@email.com;123456;011987654321;30170-000;0
-Maria Joaquina;mjoaquina@email.com;123456;011987654321;60160-150;0
-Pedro Pereira;ppereira@email.com;123456;011987654321;88020-170;0
-Sofia Oliveira;soliveira@email.com;123456;011987654321;90030-020;1
-Laura Vieira;lvieira@email.com;123456;011987654321;69020-015;1
+Administrador;admin@email.com;123456;011987654321;20230-010;1;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_1.png
+Luiz da Silva;lsilva@email.com;123456;011987654321;30170-000;0;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_2.png
+Maria Joaquina;mjoaquina@email.com;123456;011987654321;60160-150;0;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_3.png
+Pedro Pereira;ppereira@email.com;123456;011987654321;88020-170;0;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_4.png
+Sofia Oliveira;soliveira@email.com;123456;011987654321;90030-020;1;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_5.png
+Laura Vieira;lvieira@email.com;123456;011987654321;69020-015;1;https://receitafacil.s3.us-east-2.amazonaws.com/usuarios/usuario_6.png

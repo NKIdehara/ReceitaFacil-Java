@@ -23,6 +23,7 @@ public class Usuario {
     private String telefone;
     private String cep;
     private boolean admin;
+    private String foto;
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "idUsuario")
     private List<Cozinheiro> cozinheiros;
@@ -85,6 +86,13 @@ public class Usuario {
         this.admin = admin;
     }
 
+    public String getFoto() {
+        return this.foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     public List<Cozinheiro> getCozinheiros() {
         return this.cozinheiros;
     }
@@ -109,12 +117,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, String senha, String telefone, String cep, boolean admin) {
+    public Usuario(String nome, String email, String senha, String telefone, String cep, boolean admin, String foto) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.telefone = telefone;
         this.cep = cep;
         this.admin = admin;
+        this.foto = foto;
     }
 }

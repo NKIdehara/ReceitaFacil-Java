@@ -1,10 +1,13 @@
 package br.edu.infnet.al.receitafacil.controller;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import org.springframework.web.multipart.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.amazonaws.services.s3.internal.Mimetypes;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.google.gson.Gson;
 
 import br.edu.infnet.al.receitafacil.model.domain.Endereco;
 import br.edu.infnet.al.receitafacil.model.domain.Usuario;
+import br.edu.infnet.al.receitafacil.model.service.AmazonS3Service;
 import br.edu.infnet.al.receitafacil.model.service.UsuarioService;
 
 @Controller
@@ -27,6 +33,9 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private AmazonS3Service amazonS3Service;
 
     @GetMapping(value = "/usuario/cadastro")
     public String usuarioCadastro() {
@@ -39,10 +48,18 @@ public class UsuarioController {
         model.addAttribute("usuarios", usuarioService.listar());
         return "usuario/lista";
     }
-
+    
     @PostMapping(value = "/usuario/incluir")
-    public String usuarioIncluir(Model model, @RequestParam String nome, @RequestParam String senha, @RequestParam String email, @RequestParam String telefone, @RequestParam String cep) {
-        Usuario usuario = new Usuario(nome, email, senha, telefone, cep, false);
+    public String usuarioIncluir(Model model, @RequestParam String nome, @RequestParam String senha, @RequestParam String email, @RequestParam String telefone, @RequestParam String cep, @RequestParam MultipartFile file) {
+        String foto = file.getOriginalFilename();
+        // File arquivo = new File("C:\\Users\\Admin\\Downloads\\" + foto);
+        // String imagem = amazonS3Service.uploadImage("receitafacil", foto, arquivo);
+
+        ObjectMetadata meta = new ObjectMetadata();
+        meta.setContentLength(file.getSize());
+        String imagem = amazonS3Service.uploadImage("receitafacil", foto, file, meta);
+
+        Usuario usuario = new Usuario(nome, email, senha, telefone, cep, false, imagem);
         usuarioService.incluir(usuario);
 
         model.addAttribute("opcao", "i");
