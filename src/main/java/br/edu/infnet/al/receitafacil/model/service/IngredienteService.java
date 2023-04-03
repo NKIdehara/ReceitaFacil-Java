@@ -14,6 +14,13 @@ public class IngredienteService {
     @Autowired
     IngredienteRepository ingredienteRepository;
 
+
+    public Ingrediente excluir(Integer key) {
+        Ingrediente ingrediente = ingredienteRepository.findById(key).get();
+        ingredienteRepository.deleteById(key);
+        return ingrediente;
+    }
+
     public Collection<Ingrediente> listar() {
         return (Collection<Ingrediente>) ingredienteRepository.findAll();
     }

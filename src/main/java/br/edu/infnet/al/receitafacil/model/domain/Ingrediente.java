@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tbIngrediente")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -25,9 +27,11 @@ public abstract class Ingrediente {
     private float quantidade;
     private String unidade;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
     @ManyToMany(mappedBy = "ingredientes")
+    @JsonIgnore
     private List<Receita> receitas;
 
     public Integer getId() {
